@@ -1,0 +1,408 @@
+/* ==========================================================================
+   Dr. Micha Fischer — statistical consulting
+   Shared stylesheet for index.html and impressum.html.
+
+   Fonts are self-hosted (assets/fonts/). The site makes no requests to any
+   third-party host, so no visitor IP is ever transmitted outside the server.
+   ========================================================================== */
+
+/* --- Self-hosted fonts, SIL Open Font License 1.1 ------------------------ */
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;           /* variable axis */
+  font-display: swap;
+  src: url('../fonts/inter-latin-wght-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 200 900;           /* variable axis */
+  font-display: swap;
+  src: url('../fonts/source-serif-4-latin-wght-normal.woff2') format('woff2');
+}
+
+/* --- Design tokens ------------------------------------------------------- */
+
+:root {
+  --ink: #0f2740;
+  --ink-soft: #41556b;
+  --ink-faint: #6b7f93;
+  --accent: #0b6a8f;
+  --accent-dark: #084f6c;
+  --bg: #ffffff;
+  --surface: #f4f8fa;
+  --border: #dbe4ea;
+
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+
+  --measure: 68ch;
+  --wrap: 1120px;
+  --radius: 10px;
+}
+
+/* --- Base ---------------------------------------------------------------- */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  color: var(--ink);
+  line-height: 1.2;
+  margin: 0 0 0.6em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2rem, 1.35rem + 2.7vw, 3.25rem); }
+h2 { font-size: clamp(1.55rem, 1.2rem + 1.5vw, 2.15rem); }
+h3 { font-size: 1.2rem; }
+
+p { margin: 0 0 1.1em; max-width: var(--measure); }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--accent-dark); }
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+/* --- Language switching --------------------------------------------------
+   Exactly one locale is visible at a time. Only ever sets display:none, so
+   no element's natural display value has to be restored. Without JavaScript
+   the document stays in its authored locale (English) and remains readable.
+   -------------------------------------------------------------------------- */
+
+html[data-locale='en'] [lang='de'] { display: none; }
+html[data-locale='de'] [lang='en'] { display: none; }
+
+.lang-switch {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.lang-switch button {
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.85rem;
+  border: 0;
+  background: transparent;
+  color: var(--ink-faint);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.lang-switch button:hover { color: var(--ink); }
+
+.lang-switch button[aria-pressed='true'] {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* --- Site header --------------------------------------------------------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 68px;
+}
+
+/* Two-line lockup: the practice name sits under the personal name, so the full
+   company name fits the header at every width without a spaced hyphen. */
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.wordmark .name {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.wordmark .practice {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.wordmark:hover .name { color: var(--accent); }
+.wordmark:hover .practice { color: var(--accent); }
+
+.site-nav {
+  display: flex;
+  gap: 1.75rem;
+  margin-left: auto;
+  margin-right: 1.5rem;
+}
+
+.site-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.site-nav a:hover { color: var(--accent); }
+
+@media (max-width: 720px) {
+  .site-nav { display: none; }
+}
+
+/* --- Sections ------------------------------------------------------------ */
+
+section { padding-block: clamp(3.5rem, 7vw, 6rem); }
+
+.section-alt {
+  background: var(--surface);
+  border-block: 1px solid var(--border);
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.9rem;
+}
+
+/* --- Hero ---------------------------------------------------------------- */
+
+.hero { padding-block: clamp(4rem, 9vw, 7.5rem); }
+
+.hero h1 { max-width: 20ch; }
+
+.lead {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 1.02rem + 0.6vw, 1.4rem);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 56ch;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2.25rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-dark); color: #fff; }
+
+.btn-ghost { border-color: var(--border); color: var(--ink); background: var(--bg); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+/* --- Card grids ---------------------------------------------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+}
+
+.card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 1.85rem;
+}
+
+.card .num {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.65rem;
+}
+
+.card p { font-size: 1rem; }
+
+/* --- About / credentials ------------------------------------------------- */
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .split { grid-template-columns: 1fr; }
+}
+
+.cv {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.cv li {
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+.cv .role {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.cv .place { color: var(--ink-faint); font-size: 0.9rem; }
+
+/* --- Contact ------------------------------------------------------------- */
+
+.contact { text-align: center; }
+.contact p { margin-inline: auto; }
+
+.contact-mail {
+  display: inline-block;
+  margin-top: 1.75rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 1rem + 0.9vw, 1.6rem);
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.15rem;
+}
+
+.contact-mail:hover { color: var(--accent); }
+
+/* --- Footer -------------------------------------------------------------- */
+
+.site-footer {
+  background: var(--ink);
+  color: #b9c8d6;
+  padding-block: 3rem;
+  font-size: 0.875rem;
+}
+
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-footer p { margin: 0; }        /* keep both rows on one baseline */
+.site-footer a { color: #fff; text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer :focus-visible { outline-color: #fff; }
+
+/* --- Legal / prose pages (impressum) ------------------------------------- */
+
+.prose { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+.prose h1 { font-size: clamp(1.8rem, 1.4rem + 1.6vw, 2.4rem); }
+.prose h2 { font-size: 1.2rem; margin-top: 2.25rem; }
+.prose hr { margin-block: 2.5rem; border: 0; border-top: 1px solid var(--border); }
+
+/* The privacy policy nests four heading levels deep, so it needs a clearer
+   scale than the impressum. Long German compounds hyphenate on phones. */
+.policy { hyphens: auto; overflow-wrap: break-word; }
+.policy h2 { font-size: clamp(1.35rem, 1.15rem + 0.8vw, 1.65rem); margin-top: 3.25rem; }
+.policy h3 { font-size: 1.15rem; margin-top: 2.25rem; }
+.policy h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 1.5rem 0 0.35rem;
+}
+.policy ul { max-width: var(--measure); margin: 0 0 1.1em; padding-left: 1.25rem; }
+.policy li { margin-bottom: 0.4em; }
+.prose .note {
+  font-size: 0.95rem;
+  color: var(--ink-faint);
+  border-left: 3px solid var(--border);
+  padding-left: 1rem;
+}
+.policy .source { margin-top: 3rem; font-size: 0.9rem; color: var(--ink-faint); }
+.policy .sub { margin: -0.4rem 0 2.5rem; font-size: 0.95rem; color: var(--ink-faint); }
+.policy .addr { max-width: var(--measure); margin: 0 0 1.1em; }
+/* The objection notice is set in capitals in the source text. Slightly smaller
+   with a little letter spacing, which is easier to read in all caps. */
+.policy .upper { font-size: 0.95rem; letter-spacing: 0.02em; }
+
+/* --- Motion preference --------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
