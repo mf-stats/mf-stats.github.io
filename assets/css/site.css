@@ -361,6 +361,78 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
   overflow-wrap: anywhere;
 }
 
+/* --- Testimonials ---------------------------------------------------------
+   A stack of figures, one per reference. The first quote is the pull quote;
+   further quotes sit below it, then the context line and the people. */
+
+.quote-note { font-size: 0.9rem; color: var(--ink-faint); }
+
+.testimonials {
+  display: grid;
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+}
+
+.testimonial {
+  margin: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.testimonial blockquote { margin: 0; }
+
+.testimonial .pull {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.65rem);
+  line-height: 1.4;
+  color: var(--ink);
+  max-width: 40ch;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial .quotes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem 2rem;
+}
+
+.testimonial .quotes li {
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.testimonial .context {
+  margin-top: 1.75rem;
+  font-size: 0.95rem;
+}
+
+.testimonial figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2.5rem;
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.testimonial .person { flex: 1 1 220px; }
+
+.testimonial .who {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.testimonial .role { display: block; color: var(--ink-faint); font-size: 0.9rem; }
+
 /* --- Contact ------------------------------------------------------------- */
 
 .contact { text-align: center; }
