@@ -30,6 +30,10 @@
     datenschutz: {
       en: 'Privacy Policy | ' + NAME,
       de: 'Datenschutzerklärung | ' + NAME
+    },
+    publications: {
+      en: 'Publications | ' + NAME,
+      de: 'Publikationen | ' + NAME
     }
   };
 

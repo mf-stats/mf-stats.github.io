@@ -12,6 +12,7 @@ preview; GitHub Pages serves the files as-is.
 | Path | Purpose |
 | --- | --- |
 | `index.html` | The site — one page, bilingual EN/DE |
+| `publications.html` | Publication list, bilingual labels with the citations shown once. Reached from the nav and the footer. |
 | `impressum.html` | Legal notice, bilingual. German is authoritative and is the default without JavaScript. |
 | `datenschutz.html` | Privacy policy, bilingual. German text from the eRecht24 generator; the English one is a translation. German is the default without JavaScript. |
 | `assets/css/site.css` | Shared stylesheet for all pages |

@@ -331,7 +331,8 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
    Citations flow as one paragraph; only the DOI sits on its own line, where a
    long URL can wrap without pushing the layout wider. */
 
-.pub-head {
+.pub-head,
+.prose .pub-head {
   margin: 2.75rem 0 0.9rem;
   font-size: 1.05rem;
   color: var(--ink-soft);
