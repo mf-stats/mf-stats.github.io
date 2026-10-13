@@ -354,6 +354,8 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
 
 .pubs .title { color: var(--ink); font-weight: 600; }
 
+.pub-note { margin-top: -0.4rem; font-size: 0.95rem; color: var(--ink-faint); }
+
 .pubs a {
   display: inline-block;
   margin-top: 0.4rem;
