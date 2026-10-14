@@ -297,7 +297,9 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
 
 .data-types { margin-top: 3.5rem; }
 
-.data-types h3 { font-size: 1.2rem; }
+.data-types h3 { font-size: 1.2rem; margin-bottom: 0.4rem; }
+
+.data-types .dt-intro { font-size: 0.95rem; color: var(--ink-faint); }
 
 .data-types ul {
   list-style: none;
@@ -309,8 +311,8 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
 }
 
 .data-types li {
-  padding-top: 1rem;
-  border-top: 2px solid var(--accent);
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border);
 }
 
 .data-types .dt-head {
