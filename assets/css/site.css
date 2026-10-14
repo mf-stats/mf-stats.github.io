@@ -293,6 +293,39 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
 
 .card p { font-size: 1rem; }
 
+/* --- Data types (under the service cards) -------------------------------- */
+
+.data-types { margin-top: 3.5rem; }
+
+.data-types h3 { font-size: 1.2rem; }
+
+.data-types ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.75rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+}
+
+.data-types li {
+  padding-top: 1rem;
+  border-top: 2px solid var(--accent);
+}
+
+.data-types .dt-head {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+
+.data-types li p { font-size: 0.95rem; margin-bottom: 0.6rem; }
+
+.data-types .dt-examples { font-size: 0.875rem; color: var(--ink-faint); }
+
+.data-types .dt-examples > span { margin-right: 0.25rem; }
+
 /* --- About / credentials ------------------------------------------------- */
 
 .split {
