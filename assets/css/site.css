@@ -327,6 +327,37 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
 
 .cv .place { color: var(--ink-faint); font-size: 0.9rem; }
 
+.tools { margin-top: 2.25rem; }
+
+.tools h3 { font-size: 1.05rem; color: var(--ink-soft); margin-bottom: 0.9rem; }
+
+.tools-label {
+  margin: 1rem 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chips li {
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 0.875rem;
+  color: var(--ink);
+}
+
 /* --- Publications ---------------------------------------------------------
    Citations flow as one paragraph; only the DOI sits on its own line, where a
    long URL can wrap without pushing the layout wider. */
@@ -439,6 +470,47 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
 
 .contact { text-align: center; }
 .contact p { margin-inline: auto; }
+
+/* What happens after the first email: three numbered steps in a row,
+   stacked on narrow screens. */
+.steps {
+  list-style: none;
+  counter-reset: step;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  max-width: 880px;
+  margin: 2.5rem auto 0;
+  padding: 0;
+  text-align: left;
+}
+
+@media (max-width: 720px) {
+  .steps { grid-template-columns: 1fr; max-width: 30rem; }
+}
+
+.steps li {
+  counter-increment: step;
+  padding-top: 1rem;
+  border-top: 2px solid var(--accent);
+  font-size: 0.95rem;
+}
+
+.steps li::before {
+  content: counter(step);
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.steps .step-head {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
 
 .contact-mail {
   display: inline-block;
