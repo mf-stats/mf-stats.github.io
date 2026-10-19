@@ -485,6 +485,8 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
   color: var(--ink);
 }
 
+.testimonial .quote-note { margin-top: 1.5rem; margin-bottom: 0; }
+
 .testimonial .context {
   margin-top: 1.75rem;
   font-size: 0.95rem;
