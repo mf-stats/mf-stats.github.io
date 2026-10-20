@@ -10,6 +10,7 @@
     <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
     <script src="assets/js/lang.js"></script>
+    <script src="assets/js/nav.js" defer></script>
 </head>
 <body id="top">
 
@@ -27,7 +28,7 @@
                 <span class="practice">Statistical Consulting</span>
             </a>
 
-            <nav class="site-nav">
+            <nav class="site-nav" id="site-nav">
                 <a href="#services"><span lang="en">Services</span><span lang="de">Leistungen</span></a>
                 <a href="#approach"><span lang="en">Working together</span><span lang="de">Zusammenarbeit</span></a>
                 <a href="#about"><span lang="en">About</span><span lang="de">Zur Person</span></a>
@@ -42,6 +43,13 @@
                 <button type="button" data-set-locale="en" aria-pressed="true" title="English">EN</button>
                 <button type="button" data-set-locale="de" aria-pressed="false" title="Deutsch">DE</button>
             </div>
+            <!-- Mobile only: the nav collapses behind this button below 720px
+                 (see assets/js/nav.js). -->
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+                <span class="nav-toggle-bars" aria-hidden="true"></span>
+                <span class="sr-only" lang="en">Menu</span>
+                <span class="sr-only" lang="de">Menü</span>
+            </button>
         </div>
     </header>
 
