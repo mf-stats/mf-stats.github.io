@@ -323,7 +323,7 @@ section { padding-block: clamp(3.5rem, 7vw, 6rem); }
 
 .data-types { margin-top: 3.5rem; }
 
-.data-types h3 { font-size: 1.2rem; margin-bottom: 0.4rem; }
+.data-types h3 { font-size: 1.5rem; margin-bottom: 0.4rem; }
 
 .data-types .dt-intro { font-size: 0.95rem; color: var(--ink-faint); }
 
