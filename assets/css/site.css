@@ -29,7 +29,7 @@
 :root {
   --ink: #24133d;
   --ink-soft: #4f4566;
-  --ink-faint: #75698c;
+  --ink-faint: #685d80;
   --accent: #6a3fa0;
   --accent-dark: #502c7d;
   --bg: #ffffff;
@@ -180,9 +180,9 @@ html[data-locale='de'] [lang='en'] { display: none; }
 }
 
 .wordmark .practice {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-faint);
 }
@@ -206,10 +206,10 @@ html[data-locale='de'] [lang='en'] { display: none; }
 
 .site-nav a:hover { color: var(--accent); }
 
-/* Below 720px the nav is hidden; a single link (Publications on the home
-   page, Home on the publications page) takes its place on a second row of the
-   header, since a phone is too narrow to fit it beside the wordmark. */
-.mobile-link { display: none; }
+/* Below 720px the nav is hidden; a short row of the most important links
+   (Services, Contact and Publications/Home) takes its place on a second row
+   of the header, since a phone is too narrow to fit them beside the wordmark. */
+.mobile-nav { display: none; }
 
 @media (max-width: 720px) {
   .site-nav { display: none; }
@@ -221,19 +221,23 @@ html[data-locale='de'] [lang='en'] { display: none; }
     padding-top: 0.7rem;
   }
 
-  .mobile-link {
-    display: block;
+  .mobile-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.25rem;
     order: 3;
     flex-basis: 100%;
     margin-top: 0.7rem;
     padding: 0.55rem 0;
     border-top: 1px solid var(--border);
+  }
+  .mobile-nav a {
     color: var(--accent);
     font-size: 0.875rem;
     font-weight: 600;
     text-decoration: none;
   }
-  .mobile-link:hover { color: var(--accent-dark); }
+  .mobile-nav a:hover { color: var(--accent-dark); }
 }
 
 /* --- Sections ------------------------------------------------------------ */

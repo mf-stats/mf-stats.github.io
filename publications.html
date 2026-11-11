@@ -25,7 +25,7 @@
 
             <!-- Section links point back to the home page; this page is its own
                  nav entry and marks itself as the current one. -->
-            <nav class="site-nav">
+            <nav class="site-nav" aria-label="Main navigation / Hauptnavigation">
                 <a href="index.html#services"><span lang="en">Services</span><span lang="de">Leistungen</span></a>
                 <a href="index.html#approach"><span lang="en">Working together</span><span lang="de">Zusammenarbeit</span></a>
                 <a href="index.html#about"><span lang="en">About</span><span lang="de">Zur Person</span></a>
@@ -35,12 +35,16 @@
             </nav>
 
             <div class="lang-switch" role="group" aria-label="Language / Sprache">
-                <button type="button" data-set-locale="en" aria-pressed="true" title="English">EN</button>
-                <button type="button" data-set-locale="de" aria-pressed="false" title="Deutsch">DE</button>
+                <button type="button" data-set-locale="en" aria-label="English" aria-pressed="true" title="English">EN</button>
+                <button type="button" data-set-locale="de" aria-label="Deutsch" aria-pressed="false" title="Deutsch">DE</button>
             </div>
-            <!-- Mobile only: the full nav is hidden below 720px, so this one
-                 link stands in for it on a second header row. -->
-            <a class="mobile-link" href="index.html">← <span lang="en">Home</span><span lang="de">Startseite</span></a>
+            <!-- Mobile only: the full nav is hidden below 720px, so these
+                 key links stand in for it on a second header row. -->
+            <nav class="mobile-nav" aria-label="Main navigation / Hauptnavigation">
+                <a href="index.html">← <span lang="en">Home</span><span lang="de">Startseite</span></a>
+                <a href="index.html#services"><span lang="en">Services</span><span lang="de">Leistungen</span></a>
+                <a href="index.html#contact"><span lang="en">Contact</span><span lang="de">Kontakt</span></a>
+            </nav>
         </div>
     </header>
 

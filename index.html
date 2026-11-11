@@ -27,7 +27,7 @@
                 <span class="practice">Statistical Consulting</span>
             </a>
 
-            <nav class="site-nav">
+            <nav class="site-nav" aria-label="Main navigation / Hauptnavigation">
                 <a href="#services"><span lang="en">Services</span><span lang="de">Leistungen</span></a>
                 <a href="#approach"><span lang="en">Working together</span><span lang="de">Zusammenarbeit</span></a>
                 <a href="#about"><span lang="en">About</span><span lang="de">Zur Person</span></a>
@@ -39,12 +39,16 @@
             <div class="lang-switch" role="group" aria-label="Language / Sprache">
                 <!-- No lang attribute here: the stylesheet hides the inactive
                      locale, which would hide the button needed to switch back. -->
-                <button type="button" data-set-locale="en" aria-pressed="true" title="English">EN</button>
-                <button type="button" data-set-locale="de" aria-pressed="false" title="Deutsch">DE</button>
+                <button type="button" data-set-locale="en" aria-label="English" aria-pressed="true" title="English">EN</button>
+                <button type="button" data-set-locale="de" aria-label="Deutsch" aria-pressed="false" title="Deutsch">DE</button>
             </div>
-            <!-- Mobile only: the full nav is hidden below 720px, so this one
-                 link stands in for it on a second header row. -->
-            <a class="mobile-link" href="publications.html"><span lang="en">Publications</span><span lang="de">Publikationen</span> →</a>
+            <!-- Mobile only: the full nav is hidden below 720px, so these
+                 key links stand in for it on a second header row. -->
+            <nav class="mobile-nav" aria-label="Main navigation / Hauptnavigation">
+                <a href="#services"><span lang="en">Services</span><span lang="de">Leistungen</span></a>
+                <a href="#contact"><span lang="en">Contact</span><span lang="de">Kontakt</span></a>
+                <a href="publications.html"><span lang="en">Publications</span><span lang="de">Publikationen</span> →</a>
+            </nav>
         </div>
     </header>
 
